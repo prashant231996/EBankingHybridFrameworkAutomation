@@ -47,7 +47,6 @@ public class BasePage extends BaseClass{
 	
 	public void test()
 	{
-		
 	}
 
 }
