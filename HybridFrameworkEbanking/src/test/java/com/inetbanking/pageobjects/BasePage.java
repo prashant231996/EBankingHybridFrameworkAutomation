@@ -44,5 +44,10 @@ public class BasePage extends BaseClass{
 		String randomNumber=RandomStringUtils.randomNumeric(4);
 		return randomNumber;
 	}
+	
+	public void test()
+	{
+		
+	}
 
 }
