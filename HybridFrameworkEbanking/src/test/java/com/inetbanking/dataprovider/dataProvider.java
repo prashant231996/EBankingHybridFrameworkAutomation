@@ -19,11 +19,9 @@ public class dataProvider {
 	public  void createWorkBook() throws IOException
 	{
 	
-     File excelFilePath=new File(".\\src\\test\\resources\\testData.xlsx");
-		
+        File excelFilePath=new File(".\\src\\test\\resources\\testData.xlsx");
 		FileInputStream fis=new FileInputStream(excelFilePath);
-		
-	     wb=new XSSFWorkbook(fis);
+	    wb=new XSSFWorkbook(fis);
 	}
 	
 
@@ -33,7 +31,7 @@ public class dataProvider {
 		createWorkBook();
 		XSSFSheet sheet=wb.getSheet("DATA");
 		
-		int rowCount=sheet.getPhysicalNumberOfRows();
+		int rowCount=sheet.getLastRowNum();
 		System.out.println("Rows:"+rowCount);
 		
 		int columnCount=sheet.getRow(0).getLastCellNum();
@@ -41,18 +39,15 @@ public class dataProvider {
 		
 		Object[][] testData=new Object[rowCount-1][columnCount];
 		
-		for(int i=0;i<rowCount-1;i++)
+		for(int i=1;i<=rowCount;i++)
 		{
-			XSSFRow row=sheet.getRow(i+1);
+			XSSFRow row=sheet.getRow(i);
 			for(int j=0;j<columnCount;j++)
 			{
-				testData[i][j]=row.getCell(j).getStringCellValue();
-				System.out.println("Values:"+testData[i][j]);
+				testData[i-1][j]=row.getCell(j).getStringCellValue();
 			}
 		}
-		
 		return testData;
-		
 	}
 	
 	@DataProvider(name="getNewCustomerData")
@@ -62,7 +57,8 @@ public class dataProvider {
 		XSSFSheet sheet=wb.getSheet("NEW CUSTOMER");
 	//	XSSFSheet sheet=wb.getSheetAt(1);
 		
-		int rowCount=sheet.getPhysicalNumberOfRows();
+	//	int rowCount=sheet.getPhysicalNumberOfRows();
+		int rowCount= sheet.getLastRowNum();
 		System.out.println("Rows:"+rowCount);
 		
 		int columnCount=sheet.getRow(0).getLastCellNum();
@@ -70,9 +66,9 @@ public class dataProvider {
 		
 		Object[][] testData=new Object[rowCount-1][columnCount];
 		
-		for(int i=0;i<rowCount-1;i++)
+		for(int i=1;i<=rowCount;i++)
 		{
-			XSSFRow row=sheet.getRow(i+1);
+			XSSFRow row=sheet.getRow(i);
 			for(int j=0;j<columnCount;j++)
 			{
 				XSSFCell cell=row.getCell(j);
@@ -86,14 +82,14 @@ public class dataProvider {
 			// int cellType= cell.getCellType();
 			 if(cell.getCellType()==cell.CELL_TYPE_STRING)
 			 {
-				 testData[i][j]=cell.getStringCellValue(); 
+				 testData[i-1][j]=cell.getStringCellValue(); 
 			 }
 			 else if(cell.getCellType()==cell.CELL_TYPE_NUMERIC)
 			 {
-				 testData[i][j]=cell.getNumericCellValue();
+				 testData[i-1][j]=cell.getNumericCellValue();
 			 }
 			//	testData[i][j]=row.getCell(j).getStringCellValue();
-				System.out.println("Values:"+testData[i][j]);
+				//System.out.println("Values:"+testData[i][j]);
 			}
 		}
 		

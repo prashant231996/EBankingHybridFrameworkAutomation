@@ -7,9 +7,10 @@
   <test  name="E-Banking Test">
     <parameter name="browser" value="chrome"></parameter>
     <classes>
+    <class name="com.inetbanking.testcases.TC01_LoginTest"></class>
     <!-- <class name="com.inetbanking.testcases.TC02_LoginTestDDT"/>-->
    <!-- <class name="com.inetbanking.testcases.TC003_AddNewCustomer"/>-->
-      <class name="com.inetbanking.testcases.TC04_EditCustomer"/>
+   <!--  <class name="com.inetbanking.testcases.TC04_EditCustomer"/>-->
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

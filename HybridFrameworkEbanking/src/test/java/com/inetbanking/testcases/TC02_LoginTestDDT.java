@@ -28,7 +28,7 @@ public class TC02_LoginTestDDT extends BaseClass{
 		else
 		{
 		  Assert.assertTrue(true);	
-		  lp.clicklogOutLink();
+		  //lp.clicklogOutLink();
 		  driver.switchTo().alert().accept(); //Close Alert
 		  driver.switchTo().defaultContent(); //Switching back to default window
 		  log.info("Login Passed.");

@@ -7,12 +7,13 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.gargoylesoftware.htmlunit.javascript.background.JavaScriptExecutor;
 
-public class EditCustomerPage {
+public class EditCustomerPage extends BasePage{
 
 	WebDriver lDriver;
 	
 	public EditCustomerPage(WebDriver rDriver)
 	{
+		super(rDriver);
 		lDriver=rDriver;
 		PageFactory.initElements(lDriver, this);
 	}

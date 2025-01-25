@@ -13,7 +13,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.FindBy;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 
 import com.inetbanking.dataprovider.dataProvider;
@@ -34,7 +36,7 @@ public class BaseClass {
 	public String sheetName="NEW CUSTOMER";
 	
 	@Parameters("browser")
-	@BeforeClass
+	@BeforeTest
 	public void setUp(String br)
 	{
 		log=LogManager.getLogger(BaseClass.class);
@@ -64,11 +66,6 @@ public class BaseClass {
 		driver.get(baseUrl);
 	}
 	
-	@AfterClass
-	public void tearDown()
-	{
-		//driver.quit();
-	}
 	
 	
 	@FindBy(xpath="//a[text()='Log out']")
@@ -104,6 +101,13 @@ public class BaseClass {
 	{
 		String randomNumber=RandomStringUtils.randomNumeric(4);
 		return randomNumber;
+	}
+	
+	@AfterTest
+	public void tearDown()
+	{
+		//Closing all the browser context after execution which are opened by automation script
+		//driver.quit();
 	}
 
 	

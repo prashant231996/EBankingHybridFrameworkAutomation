@@ -12,6 +12,7 @@ public class LoginPage extends BasePage{
 	
 	public LoginPage(WebDriver rdriver)
 	{
+		super(rdriver);
 		ldriver=rdriver;
 		PageFactory.initElements(rdriver, this);
 	}

@@ -11,6 +11,7 @@ public class AddCustomerPage extends BasePage{
 	
 	public AddCustomerPage(WebDriver rDriver)
 	{
+		super(rDriver);
 		lDriver=rDriver;
 		PageFactory.initElements(rDriver, this);
 	}

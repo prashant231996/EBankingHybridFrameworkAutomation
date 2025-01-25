@@ -16,21 +16,20 @@ public class TC01_LoginTest extends BaseClass{
 	@Test
 	public void loginTest()
 	{
+		try
+		{
 		lp=new LoginPage(driver);
 		lp.doLogin(userName, passWord);
-		//lp.doLogin(username, pwd);
 		log.info("Log into the application...");
-		System.out.println("Page Title="+driver.getTitle());
-	//	Assert.assertEquals(driver.getTitle(), "Guru99 Bank Manager HomePage");
-		if(driver.getTitle().equalsIgnoreCase("Guru99 Bank Manager HomePage"))
-		{
-			Assert.assertTrue(true, "Test Case Passed..");
-		log.info("Logged ito application successfully..");
+	    Assert.assertEquals(driver.getTitle(), "Guru99 Bank Manager HomePage");
+	    log.info("User "+userName+" logged into the application successfully.");
+		lp.logoutFromApplication();
+		log.info("User "+userName+" logged out from the application successfully.");
 		}
-		else
+		catch(Exception e)
 		{
-			Assert.assertTrue(false,"Test Case Failed..");
-			log.info("Not login to application successfully..");
+			e.printStackTrace();
+			Assert.fail();
 		}
 	}
 

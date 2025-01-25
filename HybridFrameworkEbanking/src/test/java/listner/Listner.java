@@ -21,7 +21,6 @@ public class Listner extends BaseClass implements ITestListener{
 	ThreadLocal<ExtentTest>extentTestThread=new ThreadLocal<ExtentTest>();
 
 	public void onTestStart(ITestResult result) {
-		System.out.println(">>>In Listner");
 		extentTest=extentReport.createTest(result.getName());
 		extentTestThread.set(extentTest);
 	}
@@ -35,14 +34,7 @@ public class Listner extends BaseClass implements ITestListener{
 		extentTestThread.get().log(Status.FAIL, testResult.getName()+"Test Case got failed");
 	//	     driver=null;
 			String testName=testResult.getName();
-			//driver=getDriver();
-			try {
-	//			driver = (WebDriver)testResult.getTestClass().getRealClass().getDeclaredField("driver").get(testResult.getInstance());
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			 String screenShotFilePath=ScreenShot.getScreenShot(driver,testName);
+	        String screenShotFilePath=ScreenShot.getScreenShot(driver,testName);
 			 try {
 				extentTestThread.get().addScreenCaptureFromPath(screenShotFilePath, testName);
 			} catch (IOException e) {

@@ -20,7 +20,7 @@ public class ExtentReporter {
 		//String extentReportPath = System.getProperty("user.dir")+"\\reports\\extentreport.html";
 		ExtentHtmlReporter extentHtml=new ExtentHtmlReporter(extentReportPath);
 		
-		extentHtml.config().setReportName("E-Banking AUtomation");
+		extentHtml.config().setReportName("E-Banking Automation");
 		extentHtml.config().setDocumentTitle("Automation Test Results");
 		extentHtml.config().setTheme(Theme.DARK);
 		
